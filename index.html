@@ -169,7 +169,7 @@ const n=new Date(),T=Date.UTC(n.getFullYear(),n.getMonth(),n.getDate());
 let st={};try{st=JSON.parse(localStorage.getItem("vermut-tl"))||{}}catch(e){}
 const save=()=>{try{localStorage.setItem("vermut-tl",JSON.stringify(st))}catch(e){}};
 /* Firebase Realtime Database: enganxa aquí la URL (sense barra final), p. ex. "https://el-teu-projecte-default-rtdb.europe-west1.firebasedatabase.app". Buit = només local. */
-const DB="";
+const DB="https://dacvermut-default-rtdb.europe-west1.firebasedatabase.app";
 const push=(k,v)=>{if(DB)fetch(`${DB}/vermut/${k}.json`,{method:v?"PUT":"DELETE",body:v?"true":null}).then(r=>{if(!r.ok)throw 0}).catch(()=>$("sy").textContent="Sense connexió")};
 const ap=()=>{document.querySelectorAll("input[type=checkbox]").forEach(i=>i.checked=!!st[i.id.slice(1)]);up()};
 
